@@ -46,7 +46,7 @@ Mover.prototype.update = function () {
 
 Mover.prototype.display = function () {
   noStroke();
-  fill(255, 0, 0, 30);
+  fill(255, 0, 0, 70);
   ellipse(mouseX, mouseY, this.gravitationalFieldRadius * 2);
 
   stroke(0);
@@ -72,8 +72,9 @@ Mover.prototype.checkEdges = function () {
 var mover = new Mover(500, 599);
 
 var draw = function () {
-  background(255, 255, 255);
+  background(0, 0, 0);
 
+  stroke(255)
   mover.history.reduce((prevPos, currPos) => {
     prevPos && line(prevPos.x, prevPos.y, currPos.x, currPos.y);
 
