@@ -57,35 +57,46 @@ Mover.prototype.display = function () {
 };
 
 Mover.prototype.checkEdges = function () {
-  // if (this.position.x > width) {
-  //     this.position.x = 0;
-  // } else if (this.position.x < 0) {
-  //     this.position.x = width;
-  // }
-  // if (this.position.y > height) {
-  //     this.position.y = 0;
-  // } else if (this.position.y < 0) {
-  //     this.position.y = height;
-  // }
+  if (this.position.x > width) {
+    // this.position.x = 0;
+    this.velocity.x = -this.velocity.x;
+    this.acceleration.x = -this.acceleration.x;
+  } else if (this.position.x < 0) {
+    this.velocity.x = -this.velocity.x;
+    this.acceleration.x = -this.acceleration.x;
+    // this.position.x = width;
+  }
+  if (this.position.y > height) {
+    // this.position.y = 0;
+    this.velocity.y = -this.velocity.y;
+    this.acceleration.y = -this.acceleration.y;
+  } else if (this.position.y < 0) {
+    // this.position.y = height;
+    this.velocity.y = -this.velocity.y;
+    this.acceleration.y = -this.acceleration.y;
+  }
 };
 
-var mover = new Mover(500, 599);
+var movers = [new Mover(500, 599), new Mover(550, 599), new Mover(600, 599)];
 
 var draw = function () {
   background(0, 0, 0);
 
-  stroke(255)
-  mover.history.reduce((prevPos, currPos) => {
-    prevPos && line(prevPos.x, prevPos.y, currPos.x, currPos.y);
-
-    return currPos;
-  }, false);
-
-  mover.update();
-  mover.checkEdges();
-  mover.display();
-
-  // noStroke();
   fill(255, 200, 0);
   ellipse(mouseX, mouseY, 20);
+  
+  movers.forEach(mover => {
+    stroke(255);
+    mover.history.reduce((prevPos, currPos) => {
+      prevPos && line(prevPos.x, prevPos.y, currPos.x, currPos.y);
+
+      return currPos;
+    }, false);
+
+    mover.update();
+    // mover.checkEdges();
+    mover.display();
+
+    // noStroke();
+  });
 };
