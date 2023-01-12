@@ -9,7 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="flex flex-col h-screen">
-    <nav class="p-4 bg-gray-200">
+    <nav class="p-4 bg-gray-200 flex items-center">
+      <p class="mr-2.5">Made by</p>
       <a href="https://github.com/JoeBannouna" class="flex text-lg font-semibold items-center">
         <svg
           height="32"
@@ -29,16 +30,20 @@
       </a>
     </nav>
 
-    <main class="flex justify-evenly items-center h-full">
-      <a href="/gravitational-attraction" class="text-center rounded-lg border border-blue-600 p-4">
-        <img src="/images/gravtitaional-attraction.png" alt="Gravitational Attraction Demo" class="h-32 m-auto" />
-        <p class="pt-2 text-gray-800">Gravitational Attraction Demo</p>
-      </a>
+    <main class="h-full">
+      <h1 class="text-4xl py-24 text-center">Physics Minigames</h1>
 
-      <a href="/red-block" class="text-center rounded-lg border border-blue-600 p-4">
-        <img src="/images/red-block.png" alt="Gravitational Attraction Demo" class="h-32 m-auto" />
-        <p class="pt-2 text-gray-800">Movable Red Block Demo</p>
-      </a>
+      <div class="flex justify-evenly items-center">
+        <a href="/gravitational-attraction" class="text-center rounded-lg border border-blue-600 hover:border-blue-400 p-4">
+          <img src="/images/gravtitaional-attraction.png" alt="Gravitational Attraction Demo" class="h-32 m-auto" />
+          <p class="pt-2 text-gray-800">Gravitational Attraction Demo</p>
+        </a>
+
+        <a href="/red-block" class="text-center rounded-lg border border-blue-600 hover:border-blue-400 p-4">
+          <img src="/images/red-block.png" alt="Gravitational Attraction Demo" class="h-32 m-auto" />
+          <p class="pt-2 text-gray-800">Movable Red Block Demo</p>
+        </a>
+      </div>
     </main>
   </body>
 </html>
