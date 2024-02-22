@@ -84,7 +84,10 @@ var draw = function () {
 
   fill(255, 200, 0);
   ellipse(mouseX, mouseY, 20);
-  
+
+  text('Refresh the page to reset!', width / 2 - 140, 100);
+  textSize(20);
+
   movers.forEach(mover => {
     stroke(255);
     mover.history.reduce((prevPos, currPos) => {
@@ -99,4 +102,6 @@ var draw = function () {
 
     // noStroke();
   });
+
+  
 };
